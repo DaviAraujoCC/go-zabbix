@@ -81,7 +81,7 @@ type Host struct {
 	Description string `json:"description"`
 
 	// Inventory mode
-	InventoryMode int `json:"inventory_mode"`
+	InventoryMode interface{} `json:"inventory_mode"`
 
 	// HostID of the proxy managing this host
 	ProxyHostID string `json:"proxy_hostid"`
@@ -203,4 +203,14 @@ func (c *Session) GetHosts(params HostGetParams) ([]Host, error) {
 	}
 
 	return hosts, nil
+}
+
+func (c *Session) UpdateHost(host *Host) error {
+
+	err := c.Get("host.update", *host, &host)
+	if err != nil {
+		return err
+	}
+
+	return nil
 }
