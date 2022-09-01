@@ -30,7 +30,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/cavaliercoder/go-zabbix"
+	"github.com/DaviAraujoCC/go-zabbix"
 )
 
 func main() {
