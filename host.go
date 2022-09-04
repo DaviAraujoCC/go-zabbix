@@ -214,3 +214,14 @@ func (c *Session) UpdateHost(host *Host) error {
 
 	return nil
 }
+
+func (c *Session) DeleteHost(host_ids []string) error {
+
+	req := NewRequest("host.delete", host_ids)
+	_, err := c.Do(req)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
