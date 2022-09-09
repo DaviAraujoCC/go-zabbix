@@ -207,7 +207,8 @@ func (c *Session) GetHosts(params HostGetParams) ([]Host, error) {
 
 func (c *Session) UpdateHost(host *Host) error {
 
-	err := c.Get("host.update", *host, &host)
+	req := NewRequest("host.update", *host)
+	_, err := c.Do(req)
 	if err != nil {
 		return err
 	}
